@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
+ * 离屏绘制演示测试代码
  * Created by tian on 2019/10/9.
  */
 
@@ -60,23 +61,23 @@ public class XfermodeView extends View {
 
         setBackgroundColor(Color.GRAY);
 
-        /**
-         * 离屏绘制
-         * 通过使用离屏缓冲，把要绘制的内容单独绘制在缓冲层，保证Xfermode的使用不会出现错误的结果
-         */
-        //可以做短时的丽萍缓冲，在绘制之前保存，绘制之后恢复
-        int layerId = canvas.saveLayer(0, 0, getWidth(), getHeight(), mPaint, Canvas.ALL_SAVE_FLAG);
-
-        //目标图
-        canvas.drawBitmap(createRectBitmap(mWidth, mHeight), 0, 0, mPaint);
-        //设置混合模式
-        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        //源图，重叠区域右下角部分
-        canvas.drawBitmap(createCircleBitmap(mWidth, mHeight), 0, 0, mPaint);
-        //用完之后及时清除混合模式
-        mPaint.setXfermode(null);
-
-        canvas.restoreToCount(layerId);
+//        /**
+//         * 离屏绘制
+//         * 通过使用离屏缓冲，把要绘制的内容单独绘制在缓冲层，保证Xfermode的使用不会出现错误的结果
+//         */
+//        //可以做短时的丽萍缓冲，在绘制之前保存，绘制之后恢复
+//        int layerId = canvas.saveLayer(0, 0, getWidth(), getHeight(), mPaint, Canvas.ALL_SAVE_FLAG);
+//
+//        //目标图
+//        canvas.drawBitmap(createRectBitmap(mWidth, mHeight), 0, 0, mPaint);
+//        //设置混合模式
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+//        //源图，重叠区域右下角部分
+//        canvas.drawBitmap(createCircleBitmap(mWidth, mHeight), 0, 0, mPaint);
+//        //用完之后及时清除混合模式
+//        mPaint.setXfermode(null);
+//
+//        canvas.restoreToCount(layerId);
     }
 
     //画矩形dst

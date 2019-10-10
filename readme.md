@@ -4,7 +4,7 @@
 
 #### 离屏绘制
 ##### 通过使用离屏缓冲，把要绘制的内容单独绘制在缓冲层，保证Xfermode的使用不会出现错误的结果
-* `Canvas.saveLayer()` //可以做可以做短时的丽萍缓冲，在绘制之前保存，绘制之后恢复
+* `Canvas.saveLayer()` //可以做可以做短时的离屏缓冲，在绘制之前保存，绘制之后恢复
 ```android
     int layerId = canvas.saveLayer(0, 0, width, height, mPaint, Canvas.ALL_SAVE_FLAG);
     
@@ -20,7 +20,8 @@
     setLayerType(LAYER_TYPE_HARDWARE); //使用GPU来缓冲
     setLayerType(LAYER_TYPE_SOFTWARE); //使用一个Bitmap来缓冲
 ```
-
+##### 离屏绘制模式示意图 
+![image](https://github.com/tianyalu/NePaintXfermode/blob/master/show/xfermode.png)
 ##### 刮刮卡效果示例  
 ![image](https://github.com/tianyalu/NePaintXfermode/blob/master/show/eraser.gif)
 
