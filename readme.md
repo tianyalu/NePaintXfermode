@@ -21,7 +21,7 @@
     setLayerType(LAYER_TYPE_SOFTWARE); //使用一个Bitmap来缓冲
 ```
 ##### 2. 离屏绘制模式示意图 
-Src:矩形(上层)     Dst:圆形(下层)
+Src:矩形(上层)     Dst:圆形(下层)  
 ![image](https://github.com/tianyalu/NePaintXfermode/blob/master/show/xfermode.png)  
 解释：  
 ```android
