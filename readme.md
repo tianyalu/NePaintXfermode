@@ -3,7 +3,7 @@
 参考：[https://github.com/THEONE10211024/ApiDemos/blob/master/app/src/main/java/com/example/android/apis/graphics/Xfermodes.java](https://github.com/THEONE10211024/ApiDemos/blob/master/app/src/main/java/com/example/android/apis/graphics/Xfermodes.java)  
 
 #### 离屏绘制
-##### 通过使用离屏缓冲，把要绘制的内容单独绘制在缓冲层，保证Xfermode的使用不会出现错误的结果
+##### 1. 通过使用离屏缓冲，把要绘制的内容单独绘制在缓冲层，保证Xfermode的使用不会出现错误的结果
 * `Canvas.saveLayer()` //可以做可以做短时的离屏缓冲，在绘制之前保存，绘制之后恢复
 ```android
     int layerId = canvas.saveLayer(0, 0, width, height, mPaint, Canvas.ALL_SAVE_FLAG);
@@ -20,7 +20,7 @@
     setLayerType(LAYER_TYPE_HARDWARE); //使用GPU来缓冲
     setLayerType(LAYER_TYPE_SOFTWARE); //使用一个Bitmap来缓冲
 ```
-##### 离屏绘制模式示意图 
+##### 2. 离屏绘制模式示意图 
 Src:矩形(上层)     Dst:圆形(下层)
 ![image](https://github.com/tianyalu/NePaintXfermode/blob/master/show/xfermode.png)  
 解释：  
@@ -66,6 +66,6 @@ Src:矩形(上层)     Dst:圆形(下层)
     //取两图层全部区域，交集部分叠加
     new PorterDuffXfermode(PorterDuff.Mode.OVERLAY)
 ```
-##### 刮刮卡效果示例  
+##### 3. 刮刮卡效果示例  
 ![image](https://github.com/tianyalu/NePaintXfermode/blob/master/show/eraser.gif)
 
